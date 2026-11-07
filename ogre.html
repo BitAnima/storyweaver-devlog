@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoryWeaver - Sandbox</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <main class="main-layout">
+        
+        <!-- CABECERA Y TEXTO -->
+        <div class="meta-text">
+            <header class="modern-panel" style="margin-bottom: 30px; border-bottom: 2px solid var(--color-dark-wood); padding-bottom: 10px;">
+                <h1 style="color: var(--color-dark-wood);">Entrada 1: <em>An Ogre and His Cake</em></h1>
+                <p>En el módulo clásico <em>An Ogre and His Cake</em>, los aventureros deben infiltrarse en una torre en ruinas. En lugar de resolver esto con una simple tirada de dados de 'Robo' generada por la IA, he diseñado un minijuego táctil que traslada la dificultad al jugador físico.</p>
+            </header>
+            
+            <nav aria-label="breadcrums" style="margin-bottom: 20px; font-size: 0.9em; color: var(--color-dark-wood);">
+                <strong>📍 Estás en:</strong> Inicio > Módulos > Las Cerraduras del Ogro
+            </nav>
+            
+            <section style="margin-bottom: 40px;">
+                <h2>Mecánica: La Cerradura Enana (Lights Out)</h2>
+                <p>La puerta principal de la guarida del ogro está protegida por un antiguo mecanismo enano de 3x3. Los engranajes están interconectados: al pulsar un panel, alternarás su estado, pero <strong>también el estado de los paneles adyacentes (arriba, abajo, izquierda y derecha)</strong>.</p>
+                <p><strong>Objetivo:</strong> Consigue que los 9 paneles estén encendidos e infundidos de magia dorada al mismo tiempo para desbloquear la puerta.</p>
+            </section>   
+        </div>
+        
+        <!-- COLUMNA 1: MENÚ LATERAL -->
+        <aside class="modern-panel">
+            <section>
+                <h3 style="margin-top: 0; font-size: 1.2em; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 10px;">Módulos</h3>
+                <ul style="list-style-type: none; padding: 0; font-size: 0.9em; line-height: 1.8;">
+                    <li style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed rgba(0,0,0,0.2);">
+                        <a href="index.html" style="color: var(--color-dark-wood); text-decoration: none; font-weight: bold; font-size: 1.1em;">🏠 Volver al Inicio</a>
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <a href="ogre.html" style="color: #d35400; text-decoration: none; font-weight: bold;">➡️ Entrada 1: Las Cerraduras del Ogro (Nivel Fácil)</a>
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <a href="delian.html" style="color: #d35400; text-decoration: none; font-weight: bold;">➡️ Entrada 2: El Misterio de Delian (Nivel Medio)</a>
+                    </li>
+                    <li>
+                        <a href="frozen.html" style="color: #d35400; text-decoration: none; font-weight: bold;">➡️ Entrada 3: Trampas de Hielo (Nivel Difícil)</a>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+
+        <!-- COLUMNA 2: TABLERO EN EL CENTRO -->
+        <article>
+            <div id="game-interface">
+                <div id="board-game"></div>
+            </div>
+        </article>
+
+        <!-- COLUMNA 3: HUD A LA DERECHA -->
+        <aside id="game-hud" class="modern-panel"> 
+            <div style="text-align: center; margin-bottom: 20px;">
+                <button id="btn-music" style="padding: 10px; width: 100%; font-weight: bold; cursor: pointer; color: #2c1b10; background-color: var(--color-clear-wood); border-radius: 8px;" onclick="toggleMusic()">🎵 Música</button>
+            </div>                       
+            <div class="portrait">
+                <img id="character-portrait" src="assets/normal-face.png" alt="Avatar">
+            </div>
+            <div class="life-bar-container">
+                <div class="life-bar-fill" id="bar-life" style="width: 100%;"></div>
+            </div>
+            <div class="minimap-container">
+                <img src="assets/minimap.jpg" alt="Minimap">
+            </div>                
+        </aside>
+        
+    </main>
+
+    <audio id="background-music" src="assets/kaazoom-embers-on-the-flagstone-seamless-loop-medieval-tavern-rpg-616137.mp3" loop></audio>
+    <script src="js/engine.js"></script>
+    <script>
+        startGame(3, 3, 'panels');
+    </script>
+</body>
+</html>

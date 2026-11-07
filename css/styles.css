@@ -5,11 +5,14 @@
   border-radius: 12px;
   box-shadow: 0px 6px 0px var(--color-dark-wood);
   aspect-ratio: 1 / 1;
+  position: relative;
+  z-index: 10;
 }
 
 .btn-game:active {
   transform: translateY(4px);
   box-shadow: 0px 2px 0px var(--color-dark-wood);
+  position: relative; z-index: 10;
 }
 
 /* --- CHARACTER PORTRAIT --- */
@@ -100,6 +103,55 @@ body {
     width: 100%;
     max-width: 380px;
     margin: 0 auto;
+    position: relative; /* AÑADIDO PARA EL CANDADO */
+}
+
+#board-game::before {
+    content: "🔒";
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8rem;
+    opacity: 0.7;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.victory-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    grid-column: 1 / -1;
+    color: var(--color-dark-wood);
+    margin-top: -40px; 
+    animation: aparecer 0.5s ease;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.magic-sparks {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--color-accent), 0 0 20px #fff;
+    pointer-events: none;
+    z-index: 9999;
+    animation: flotar 2s ease-in-out forwards;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-150px) scale(0); opacity: 0; }
 }
 
 #game-hud .minimap-container {
@@ -126,4 +178,20 @@ body {
 .meta-text {
   grid-column: 1 / -1;
   margin-bottom: 20px;
+}
+
+.shake-damage {
+    animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+    filter: sepia(1) hue-rotate(310deg) saturate(3) brightness(0.8); /* Tiñe el pergamino de rojo sangre */
+}
+
+@keyframes shake {
+    10%, 90% { transform: translate3d(-2px, 0, 0); }
+    20%, 80% { transform: translate3d(4px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+    40%, 60% { transform: translate3d(6px, 0, 0); }
+}
+
+#board-game.hide-padlock::before {
+    display: none !important;
 }
