@@ -1,0 +1,35 @@
+<head >
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+
+
+<body>
+    <nav>
+        <button onclick="document.getElementById('background-music').play()">🎵 Música</button>
+    </nav>
+    <main class="main-layout">
+        <article>
+            <div id="board-game"></div>
+        </article>
+        <aside>
+            <!-- Character's portrait-->
+            <div class="portrait">
+                <img id="character-portrait" src="assets/normal-face.png" alt="Avatar">
+            </div>
+
+            <!-- Life bar -->
+            <div class="life-bar-container">
+                <div class="life-bar-fill" id="bar-life" style="width: 100%;"></div>
+            </div>
+
+            <!-- Minimap -->
+            <div class="minimap-container">
+                <img src="assets/minimap.jpg" alt="Minimap">
+            </div>
+
+        </aside>
+
+    </main>
+    <audio id="background-music" src="assets/tabern.mp3" loop></audio>
+</body>
