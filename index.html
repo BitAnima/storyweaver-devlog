@@ -6,30 +6,71 @@
 
 <body>
     <nav>
-        <button onclick="document.getElementById('background-music').play()">🎵 Música</button>
+        <button id="btn-musica" onclick="toggleMusic()">🎵 Música</button>
     </nav>
     <main class="main-layout">
         <article>
-            <div id="board-game"></div>
+            <nav aria-label="breadcrums" style="margin-bottom: 20px; font-size: 0.9em; color: var(--color-dark-wood);">
+                <strong>📍 Estás en:</strong> Inicio > Plantilla para minijuegos
+            </nav>
+            <header style="margin-bottom: 30px; border-bottom: 2px solid var(--color-dark-wood); padding-bottom: 10px;">
+                <h1 style="color: var(--color-dark-wood);">El motor de StoryWeaver</h1>
+                <p>Bienvenido al núcleo de <strong>StoryWeaver</strong>, es un juego de rol interactivo diseñado para dar vida a módulos clásicos de D&D adaptados para jugadores jóvenes. Este motor gestiona las mecánicas, las tiradas y el progreso de los aventureros directamente desde el navegador.</p>
+                <p>En este blog documentaremos la integración de los minijuegos interactivos que servirán como mecánicas de resolución para las diferentes campañas disponibles en el juego: <em>An Ogre and His Cake</em>, <em>Delian Tomb</em> y <em>Frozen Sick</em>.</p>
+            </header>
+            <section style="margin-bottom: 40px;">
+                <h2>Arquitectura del Motor en Vanilla JS</h2>
+                <p>El objetivo de este proyecto es construir un motor RPG modular prescindiendo de frameworks externos. La lógica de la cuadrícula se genera dinámicamente mediante JavaScript nativo, mientras que la presentación visual se apoya íntegramente en variables CSS y CSS Grid.</p>
+                <p>A lo largo de este diario, documentaré la creación de distintos minijuegos interactivos que funcionarán como mecánicas de resolución para módulos como <em>An Ogre and His Cake</em>, <em>Delian Tomb</em> y <em>Frozen Sick</em>.</p>
+            </section>
+            <section style="margin-bottom: 40px;">
+                <h2>Prototipo de cuadrícula base</h2>
+                <p>A continuación se presenta la generación dinámica de la interfaz táctil. Los botones interactúan con el DOM y el archivo de audio sin recargar la página:</p>
+                <div id="game-interface">
+                    <div id="board-game"></div>
+                    <div id="game-hud">
+
+                    
+                    <!-- Character's portrait-->
+                <div class="portrait">
+                    <img id="character-portrait" src="assets/normal-face.png" alt="Avatar">
+                </div>
+
+                <!-- Life bar -->
+                <div class="life-bar-container">
+                    <div class="life-bar-fill" id="bar-life" style="width: 100%;"></div>
+                </div>
+
+                <!-- Minimap -->
+                <div class="minimap-container">
+                    <img src="assets/minimap.jpg" alt="Minimap">
+                </div>                
+            </div>
+        </div>
+    </section>
+
+    
         </article>
         <aside>
-            <!-- Character's portrait-->
-            <div class="portrait">
-                <img id="character-portrait" src="assets/normal-face.png" alt="Avatar">
-            </div>
-
-            <!-- Life bar -->
-            <div class="life-bar-container">
-                <div class="life-bar-fill" id="bar-life" style="width: 100%;"></div>
-            </div>
-
-            <!-- Minimap -->
-            <div class="minimap-container">
-                <img src="assets/minimap.jpg" alt="Minimap">
-            </div>
-
+            <section>
+                <h2>Módulos de juego</h2>
+                <ul style= "list-style-type: none; padding: 0;">
+                    <li style="margin-bottom: 10px;">
+                        <a href="ogre.html" style="color: #d35400; text-decoration: none; font-weight: bold;">➡️ Entrada 1: Las Cerraduras del Ogro (Nivel Fácil)</a>
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <a href="delian.html" style="color: #d35400; text-decoration: none; font-weight: bold;">➡️ Entrada 2: El Misterio de Delian (Nivel Medio)</a>
+                    </li>
+                    <li>
+                        <a href="frozen.html" style="color: #d35400; text-decoration: none; font-weight: bold;">➡️ Entrada 3: Trampas de Hielo (Nivel Difícil)</a>
+                    </li>
+                </ul>
+            </section>
         </aside>
-
     </main>
-    <audio id="background-music" src="assets/tabern.mp3" loop></audio>
+    <audio id="background-music" src="assets/kaazoom-embers-on-the-flagstone-seamless-loop-medieval-tavern-rpg-616137.mp3" loop></audio>
+    <script src="js/engine.js"></script>
+    <script>
+        startGame(3, 3, 'paneles');
+    </script>
 </body>
