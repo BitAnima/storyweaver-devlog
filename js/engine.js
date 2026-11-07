@@ -1,5 +1,3 @@
-const soundClic = new Audio('assets/clic1.ogg');
-
 function startGame(rows, cols, gameType) {
     document.getElementById('board-game').innerHTML = '';
     let matrixStatus = [];
@@ -13,8 +11,7 @@ function startGame(rows, cols, gameType) {
             cell.dataset.x = i;
             cell.dataset.y = j;
             cell.addEventListener('click', () => {
-                soundClic.play();
-                handleClick(i, j, gameType)
+                handleClick(i, j, gameType);
             });
             document.getElementById('board-game').appendChild(cell);
         }
@@ -24,18 +21,26 @@ function startGame(rows, cols, gameType) {
 }
 
 function handleClick(x, y, gameType) {
-    console.log("Clic en la celda: " + x + ", " + y);
+    let button = document.querySelector(`[data-x='${x}'][data-y='${y}']`);
+    if (button) {
+        button.classList.toggle('light-up-cell');
+    }
+
+    try {
+        let soundClic = new Audio('assets/click1.ogg'); 
+        soundClic.play().catch(() => {});
+    } catch(error) {}
 }
 
 function toggleMusic() {
-    let musica = document.getElementById('background-music');
-    let boton = document.getElementById('btn-musica');
+    let music = document.getElementById('background-music');
+    let boton = document.getElementById('btn-music');
 
-    if (musica.paused) {
-        musica.play();
+    if (music.paused) {
+        music.play();
         boton.innerText = "🔇 Silenciar";
     } else {
-        musica.pause();
+        music.pause();
         boton.innerText = "🎵 Música";
     }
 }
