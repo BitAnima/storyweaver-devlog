@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoryWeaver - An Ogre and His Cake</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="delian-theme">
+    <main class="main-layout">
+        
+        <!-- HEADER AND TEXT FOR DELIAN.HTML -->
+        <div class="meta-text">
+            <nav aria-label="breadcrumbs" class="breadcrumbs">
+                <strong>📍 Estás en:</strong> <a href="index.html">Inicio</a> > Módulos > El misterio de Delian
+            </nav>
+            
+            <header class="modern-panel header-module">
+                <h1 style="color: var(--color-dark-wood);">Entrada 2: <em>El misterio de Delian</em></h1>
+                <p>Si alguna vez has jugado a rol, seguro que conoces <em>La Tumba Deliana</em>. Es la aventura perfecta para novatos: persigues a unos goblins hasta el interior de una tumba que, en realidad, esconde el mausoleo secreto de una antigua orden de caballeros olvidada.</p>
+                <p>Al fondo de esta cripta hay una cámara oculta que guarda el verdadero tesoro. En una partida de mesa tradicional, el Dungeon Master te pediría una simple prueba de Inteligencia para descifrar el muro. En este motor, he transformado esa tirada pasiva en un puzle místico interactivo. Demuestra lo que vale tu personaje rompiendo el sello mágico.</p>
+            </header>
+            
+            <section class="text-section">
+                <h2>El desafío: El sello del juramento (4x4)</h2>
+                <p>La pared de piedra secreta está custodiada por una matriz de cristal rúnico de 4x4. Funciona con la misma lógica interconectada que la cerradura del ogro, pero al tener más nodos, la resonancia mágica es mucho más inestable y difícil de predecir.</p>
+                <p><strong>Tu objetivo:</strong> Alinear el flujo de maná para que los 16 cristales brillen con luz élfica simultáneamente. Solo entonces la ilusión se desvanecerá, revelando los oscuros secretos de la orden de Delian.</p>
+            </section>   
+        </div>
+        
+        <!-- SIDE NAVIGATION PANE -->
+        <aside class="modern-panel">
+            <section>
+                <h3 style="margin-top: 0; font-size: 1.2em; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 10px;">Módulos</h3>
+                <ul style="list-style-type: none; padding: 0; font-size: 0.9em; line-height: 1.8;">
+                    <li style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed rgba(0,0,0,0.2);">
+                        <a href="index.html" style="font-weight: bold; font-size: 1.1em;">🏠 Volver al Inicio</a>
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <a href="ogre.html">➡️ Entrada 1: Las cerraduras del ogro (Nivel fácil)</a>
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <a href="delian.html" class="active-menu">➡️ Entrada 2: El misterio de Delian (Nivel medio)</a>
+                    </li>
+                    <li>
+                        <a href="frozen.html">➡️ Entrada 3: Trampas de hielo (Nivel difícil)</a>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+
+        <!-- BOARDGAME -->
+        <article>
+            <div id="game-interface">
+                <div id="board-game"></div>
+            </div>
+        </article>
+
+        <!-- HUD -->
+        <aside id="game-hud" class="modern-panel"> 
+            <div style="text-align: center; margin-bottom: 20px;">
+                <button id="btn-music" class="btn-music" onclick="toggleMusic()">🎵 Música</button>
+            </div>                       
+            <div class="portrait">
+                <img id="character-portrait" src="assets/normal-face.png" alt="Avatar">
+            </div>
+            <div class="life-bar-container">
+                <div class="life-bar-fill" id="bar-life" style="width: 100%;"></div>
+            </div>
+            <div class="minimap-container">
+                <img src="assets/minimap.jpg" alt="Minimap">
+            </div>                
+        </aside>
+        <footer style="grid-column: 1 / -1; margin-top: 20px; text-align: center; font-size: 0.8em; color: var(--color-dark-wood); border-top: 1px solid rgba(0,0,0,0.1); padding-top: 15px;">
+            <p><strong>Créditos:</strong> Módulo "An Ogre and His Cake" creado por Christopher Walz y Emmet Byrne. Música y texturas utilizadas bajo licencia de uso no comercial.</p>
+        </footer>
+    </main>
+
+    <audio id="background-music" src="assets/kaazoom-embers-on-the-flagstone-seamless-loop-medieval-tavern-rpg-616137.mp3" loop></audio>
+    <script src="js/engine.js"></script>
+    <script src="js/ogre.js"></script>
+    <script>
+        startGame(3, 3, 'panels');
+    </script>
+</body>
+</html>
