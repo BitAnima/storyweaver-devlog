@@ -195,3 +195,19 @@ body {
 #board-game.hide-padlock::before {
     display: none !important;
 }
+
+/* --- RESPONSIVE WEB ADAPTATION --- */
+@media (max-width: 900px) {
+    .main-layout {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+
+    #game-interface {
+        padding: 120px 30px 40px 30px; 
+    }
+
+    #board-game {
+        max-width: 100%; 
+    }
+}
