@@ -211,3 +211,47 @@ body {
         max-width: 100%; 
     }
 }
+
+/* --- SIDE NAVIGATION PANE STYLES --- */
+.modern-panel ul a {
+    color: var(--color-dark-wood);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.modern-panel ul a:hover {
+    color: #d35400;
+}
+
+a.active-menu {
+    color: #d35400 !important;
+    font-weight: bold;
+}
+
+/* --- STRUCTURE AND TEXT STYLES --- */
+.header-modul {
+    margin-bottom: 30px; 
+    border-bottom: 2px solid var(--color-dark-wood); 
+    padding-bottom: 10px;
+}
+
+.breadcrums {
+    margin-bottom: 20px; 
+    font-size: 0.9em; 
+    color: var(--color-dark-wood);
+}
+
+.text-section {
+    margin-bottom: 40px;
+}
+
+/* --- MUSIC BUTTON --- */
+.btn-music {
+    padding: 10px; 
+    width: 100%; 
+    font-weight: bold; 
+    cursor: pointer; 
+    color: #2c1b10; 
+    background-color: var(--color-clear-wood); 
+    border-radius: 8px;
+}
