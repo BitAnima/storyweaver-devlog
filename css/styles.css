@@ -237,10 +237,23 @@ a.active-menu {
     padding-bottom: 10px;
 }
 
+/* --- BREADCRUMBS --- */
 .breadcrums {
     margin-bottom: 20px; 
     font-size: 0.9em; 
     color: var(--color-dark-wood);
+}
+
+.breadcrumbs a {
+    color: #d35400;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.breadcrumbs a:hover {
+    color: var(--color-dark-wood);
+    text-decoration: underline;
 }
 
 .text-section {

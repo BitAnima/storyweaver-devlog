@@ -11,6 +11,9 @@
         
         <!-- HEADER AND TEXT -->
         <div class="meta-text">
+            <nav aria-label="breadcrumbs" class="breadcrumbs">
+                <strong>📍 Estás en:</strong> <a href="index.html">Inicio</a> > Plantilla para minijuegos
+            </nav>
             <header class="modern-panel header-module">
                 <h1 style="color: var(--color-dark-wood);">El motor de StoryWeaver</h1>
                 <p>Bienvenido al diario de desarrollo de <strong>StoryWeaver</strong>. El núcleo de mi proyecto es un RPG interactivo local impulsado por FastAPI y PostgreSQL, donde la IA y ComfyUI/Flux asumen el rol de Dungeon Master para narrar e ilustrar en tiempo real campañas basadas en Open5e.</p>
@@ -23,11 +26,7 @@
                 <p>El objetivo de este proyecto es construir un motor RPG modular prescindiendo de frameworks externos. La lógica de la cuadrícula se genera dinámicamente mediante JavaScript nativo, mientras que la presentación visual se apoya íntegramente en variables CSS y CSS Grid.</p>
                 <p>A lo largo de este diario, documentaré la creación de distintos minijuegos interactivos que funcionarán como mecánicas de resolución para módulos como <em>An Ogre and His Cake</em>, <em>Delian Tomb</em> y <em>Frozen Sick</em>.</p>
             </section>
-            
-            <nav aria-label="breadcrumbs" class="breadcrums">
-                <strong>📍 Estás en:</strong> Inicio > Plantilla para minijuegos
-            </nav>
-            
+                        
             <section class="text-section">
                 <h2>Prototipo de cuadrícula base</h2>
                 <p>El tablero que ves a continuación es la <strong>plantilla base</strong> del motor y funciona como un entorno de pruebas (<em>sandbox</em>). Demuestra que el motor genera la cuadrícula y que los eventos del DOM (luces y sonido) responden al instante. Su función no es albergar un juego completo, sino demostrar que el sistema de coordenadas de la cuadrícula se genera correctamente y que los eventos táctiles responden de forma dinámica. Si hace clic en una celda, se activará un sonido y se verás cómo las casillas se iluminan.</p>
@@ -40,17 +39,14 @@
             <section>
                 <h3 style="margin-top: 0; font-size: 1.2em; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 10px;">Módulos</h3>
                 <ul style="list-style-type: none; padding: 0; font-size: 0.9em; line-height: 1.8;">
-                    <li style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed rgba(0,0,0,0.2);">
-                        <a href="index.html" style="font-weight: bold; font-size: 1.1em;">🏠 Volver al Inicio</a>
+                    <li style="margin-bottom: 10px;">
+                        <a href="ogre.html">➡️ Entrada 1: Las cerraduras del ogro (Nivel fácil)</a>
                     </li>
                     <li style="margin-bottom: 10px;">
-                        <a href="ogre.html">➡️ Entrada 1: Las Cerraduras del Ogro (Nivel Fácil)</a>
-                    </li>
-                    <li style="margin-bottom: 10px;">
-                        <a href="delian.html">➡️ Entrada 2: El Misterio de Delian (Nivel Medio)</a>
+                        <a href="delian.html">➡️ Entrada 2: El misterio de Delian (Nivel medio)</a>
                     </li>
                     <li>
-                        <a href="frozen.html">➡️ Entrada 3: Trampas de Hielo (Nivel Difícil)</a>
+                        <a href="frozen.html">➡️ Entrada 3: Trampas de hielo (Nivel difícil)</a>
                     </li>
                 </ul>
             </section>
@@ -78,7 +74,9 @@
                 <img src="assets/minimap.jpg" alt="Minimap">
             </div>                
         </aside>
-        
+        <footer style="grid-column: 1 / -1; margin-top: 20px; text-align: center; font-size: 0.8em; color: var(--color-dark-wood); border-top: 1px solid rgba(0,0,0,0.1); padding-top: 15px;">
+            <p><strong>Créditos:</strong> Música y texturas utilizadas bajo licencia de uso no comercial.</p>
+        </footer>
     </main>
 
     <audio id="background-music" src="assets/kaazoom-embers-on-the-flagstone-seamless-loop-medieval-tavern-rpg-616137.mp3" loop></audio>
