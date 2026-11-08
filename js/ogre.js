@@ -33,7 +33,7 @@ function updateBoard() {
 function launchMagicSparks() {
     for (let i = 0; i < 40; i++) {
         let spark = document.createElement('div');
-        spark.className = 'magic-spark';
+        spark.className = 'magic-sparks';
         spark.style.left = (window.innerWidth / 2 - 200 + Math.random() * 400) + 'px';
         spark.style.top = (window.innerHeight / 2 - 100 + Math.random() * 200) + 'px';
         spark.style.animationDelay = Math.random() * 0.8 + 's';

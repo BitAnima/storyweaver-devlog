@@ -37,7 +37,7 @@ function updateBoard() {
 function launchMagicSparks() {
     for (let i = 0; i < 40; i++) {
         let spark = document.createElement('div');
-        spark.className = 'magic-spark';
+        spark.className = 'magic-sparks';
         /* Chispas místicas élficas */
         spark.style.backgroundColor = '#00ffff'; 
         spark.style.boxShadow = '0 0 10px #00ffff, 0 0 20px #fff';

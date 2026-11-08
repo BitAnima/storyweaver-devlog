@@ -35,7 +35,7 @@ function startGame(rows, cols, gameType) {
 
 function handleClick(x, y, gameType) {
     try {
-        let soundClic = new Audio('assets/click1.ogg'); 
+        let soundClic = new Audio('assets/audio/click1.ogg'); 
         soundClic.play().catch(() => {});
     } catch(error) {}
 
