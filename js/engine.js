@@ -67,12 +67,12 @@ function handleClick(x, y, gameType) {
                 setTimeout(() => {
                     let board = document.getElementById('board-game');
                     board.style.gridTemplateColumns = '1fr';
-                    board.classList.add('ocultar-candado');
+                    board.classList.add('defeat');
                     board.innerHTML = `
-                        <div class="mensaje-victoria" style="color: #8b0000;">
-                            <h2 style="margin-bottom: 5px; color: #8b0000;">¡Has muerto!</h2>
-                            <p style="font-size: 1.1em; max-width: 80%; margin: 0 auto;">Las trampas mágicas te han carbonizado por completo. El ogro se ha salido con la suya...</p>
-                            <button class="btn-game" style="margin-top: 20px; width: 200px; padding: 10px; font-weight: bold; cursor: pointer; color: black;" onclick="location.reload()">🔄 Jugar de nuevo</button>
+                        <div class="victory-message defeat-message">
+                            <h2>¡Te han pillado!</h2>
+                            <p>Has quedado atrapado. El ogro se ha enfadado y te ha hecho su prisionero.</p>
+                            <button class="btn-game btn-restart" onclick="location.reload()">🔄 Jugar de nuevo</button>
                         </div>
                     `;
                 }, 400); 

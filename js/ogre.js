@@ -16,16 +16,16 @@ function updateBoard() {
     if (currentGameType === 'panels' && sum === totalCells) {
         setTimeout(() => {
             let board = document.getElementById('board-game');
-            board.classList.add('ocultar-candado');
+            board.classList.add('victory');
             board.style.gridTemplateColumns = '1fr';
             board.innerHTML = `
-                <div class="mensaje-victoria">
-                    <h2 style="margin-bottom: 5px;">¡Mecanismo Desbloqueado!</h2>
-                    <p style="font-size: 1.1em; max-width: 80%; margin: 0 auto;">Los engranajes encajan con un chasquido sordo. La pesada puerta cede. <strong>¡La tarta del ogro está a un paso!</strong></p>
-                    <button class="btn-game" style="margin-top: 20px; width: 200px; padding: 10px; font-weight: bold; cursor: pointer; color: black;" onclick="location.reload()">🔄 Jugar de nuevo</button>
+                <div class="victory-message">
+                    <h2>¡Mecanismo desbloqueado!</h2>
+                    <p>Los engranajes encajan con un chasquido sordo. La pesada puerta cede. <strong>¡La tarta del ogro está a un paso!</strong></p>
+                    <button class="btn-game btn-restart" onclick="location.reload()">🔄 Jugar de nuevo</button>
                 </div>
             `;
-            lanzarChispasMagicas();
+            launchMagicSparks();
         }, 500); 
     }
 }

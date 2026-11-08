@@ -127,9 +127,15 @@ body {
     height: 100%;
     grid-column: 1 / -1;
     color: var(--color-dark-wood);
-    margin-top: -40px; 
-    animation: aparecer 0.5s ease;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    animation: appear 0.5s ease;
+    background-color: rgba(255, 245, 230, 0.9);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.defeat-message h2, .defeat-message p {
+    color: #8b0000;
 }
 
 @keyframes appear {
@@ -192,10 +198,6 @@ body {
     40%, 60% { transform: translate3d(6px, 0, 0); }
 }
 
-#board-game.hide-padlock::before {
-    display: none !important;
-}
-
 /* --- RESPONSIVE WEB ADAPTATION --- */
 @media (max-width: 900px) {
     .main-layout {
@@ -229,7 +231,7 @@ a.active-menu {
 }
 
 /* --- STRUCTURE AND TEXT STYLES --- */
-.header-modul {
+.header-module {
     margin-bottom: 30px; 
     border-bottom: 2px solid var(--color-dark-wood); 
     padding-bottom: 10px;
@@ -254,4 +256,71 @@ a.active-menu {
     color: #2c1b10; 
     background-color: var(--color-clear-wood); 
     border-radius: 8px;
+}
+
+body.ogre-theme {
+    background-image: url('../assets/parchment.jpg'); 
+}
+
+body.ogre-theme #board-game::before { 
+    content: "🔒" !important; 
+    opacity: 0.15 !important;
+}
+
+#board-game.victory::before,
+#board-game.defeat::before {
+    display: none !important;
+}
+
+body.ogre-theme #board-game.victory .victory-message::before { 
+    content: "🎂"; 
+    font-size: 4rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+body.ogre-theme #board-game.defeat .victory-message::before { 
+    content: "💀"; 
+    font-size: 4rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+
+btn-restart {
+    aspect-ratio: auto; 
+    width: 200px;
+    padding: 12px;
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: #2c1b10;
+}
+
+/* --- RESTART BUTTON --- */
+.btn-restart {
+    aspect-ratio: auto !important; 
+    width: 220px !important;
+    padding: 15px !important;
+    margin: 25px auto 0 auto !important;
+    font-size: 1.2em !important;
+    color: #fff !important;
+    background-color: #2c1b10 !important;
+    display: block;
+}
+
+/* --- MODULE COVER IMAGE --- */
+.module-cover-container {
+    margin-top: 30px;
+    border-top: 1px dashed rgba(0,0,0,0.2);
+    padding-top: 20px;
+    text-align: center;
+}
+
+.cover-module {
+    max-width: 100%;
+    height: auto;
+    opacity: 0.9;
+    mix-blend-mode: multiply;
+    border-radius: 8px;
+    filter: contrast(1.1) sepia(0.2);
 }
