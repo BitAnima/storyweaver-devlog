@@ -50,7 +50,7 @@
   width: 100%;
   height: 200px;
   border: 6px solid var(--color-dark-wood);
-  background-image: url('../assets/parchment.jpg');
+  background-image: url('../assets/backgrounds/parchment.jpg');
   background-size: cover;
   border-radius: 8px;
 }
@@ -63,7 +63,7 @@
 }
 
 body {
-    background-image: url('../assets/parchment.jpg');
+    background-image: url('../assets/backgrounds/parchment.jpg');
     background-size: cover;
     background-attachment: fixed;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -85,10 +85,10 @@ body {
   }
 
 #game-interface {
-    background-image: url('../assets/parchment1.png');
+    background-image: url('../assets/backgrounds/parchment1.png');
     background-size: 100% 100%;
     border: 20px solid transparent;
-    border-image: url('../assets/frame_wood.png') 30 round;
+    border-image: url('../assets/ui/frame_wood.png') 30 round;
     padding: 220px 70px 70px 70px;
     display: flex;
     justify-content: center;
@@ -238,7 +238,7 @@ a.active-menu {
 }
 
 /* --- BREADCRUMBS --- */
-.breadcrums {
+.breadcrumbs {
     margin-bottom: 20px; 
     font-size: 0.9em; 
     color: var(--color-dark-wood);
@@ -272,7 +272,7 @@ a.active-menu {
 }
 
 body.ogre-theme {
-    background-image: url('../assets/parchment.jpg'); 
+    background-image: url('../assets/backgrounds/parchment.jpg'); 
 }
 
 body.ogre-theme #board-game::before { 
@@ -299,15 +299,6 @@ body.ogre-theme #board-game.defeat .victory-message::before {
     display: block;
 }
 
-
-btn-restart {
-    aspect-ratio: auto; 
-    width: 200px;
-    padding: 12px;
-    margin-top: 20px;
-    font-size: 1.1em;
-    color: #2c1b10;
-}
 
 /* --- RESTART BUTTON --- */
 .btn-restart {
@@ -336,4 +327,25 @@ btn-restart {
     mix-blend-mode: multiply;
     border-radius: 8px;
     filter: contrast(1.1) sepia(0.2);
+}
+
+/* --- DELIAN THEME --- */
+body.delian-theme { 
+    background-image: url('../assets/backgrounds/parchment.jpg'); 
+    --color-clear-wood: #2e4d3a; 
+    --color-dark-wood: #112b1c; 
+    --color-accent: #00ffff; 
+} 
+body.delian-theme #board-game::before { content: "🔒" !important; opacity: 0.15 !important; }
+body.delian-theme #board-game.victory .victory-message::before { content: "💎"; font-size: 4rem; margin-bottom: 10px; display: block; }
+body.delian-theme #board-game.defeat .victory-message::before { content: "💀"; font-size: 4rem; margin-bottom: 10px; display: block; }
+
+body.delian-theme #game-interface {
+    background-image: url('../assets/backgrounds/delian_background.jpg');
+    padding: 70px; 
+}
+
+body.frozen-theme #game-interface {
+    background-image: url('../assets/backgrounds/frozen_background.jpg');
+    padding: 70px;
 }

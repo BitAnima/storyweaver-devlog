@@ -68,10 +68,14 @@ function handleClick(x, y, gameType) {
                     let board = document.getElementById('board-game');
                     board.style.gridTemplateColumns = '1fr';
                     board.classList.add('defeat');
+                    
+                    let titleDefeat = window.customDefeatTitle || "¡Has muerto!";
+                    let textDefeat = window.customDefeatText || "Las trampas mágicas te han carbonizado por completo. El ogro se ha salido con la suya...";
+
                     board.innerHTML = `
                         <div class="victory-message defeat-message">
-                            <h2>¡Te han pillado!</h2>
-                            <p>Has quedado atrapado. El ogro se ha enfadado y te ha hecho su prisionero.</p>
+                            <h2>${titleDefeat}</h2>
+                            <p>${textDefeat}</p>
                             <button class="btn-game btn-restart" onclick="location.reload()">🔄 Jugar de nuevo</button>
                         </div>
                     `;
