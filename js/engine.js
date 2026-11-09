@@ -2,6 +2,9 @@ let matrixStatus = [];
 let currentGameType = '';
 let moves = 0;
 let life = 100;
+let currentRows = 0;
+let currentCols = 0;
+let memoryTimer = null;
 
 function startGame(rows, cols, gameType) {
     document.getElementById('board-game').innerHTML = '';
@@ -12,6 +15,11 @@ function startGame(rows, cols, gameType) {
     document.getElementById('bar-life').style.width = '100%';
     document.getElementById('bar-life').style.backgroundColor = '#ff3b3b';
     let portrait = document.getElementById('character-portrait');
+    portrait.classList.remove('avatar-frozen');
+    currentRows = rows;
+    currentCols = cols;
+    document.getElementById('board-game').classList.remove('victory', 'defeat');
+    document.getElementById('board-game').style.pointerEvents = 'auto';
 
     if (portrait) portrait.src = 'assets/normal-face.png';
 
@@ -53,12 +61,12 @@ function startGame(rows, cols, gameType) {
             }
         }
 
-        // El temporizador implacable: a los 2 segundos, se apaga la luz
-        setTimeout(() => {
+        clearTimeout(memoryTimer);
+        memoryTimer = setTimeout(() => {
             document.querySelectorAll('.btn-game').forEach(btn => {
                 btn.classList.remove('light-up-cell');
             });
-            board.style.pointerEvents = 'auto'; // Vuelve a permitir clics
+            board.style.pointerEvents = 'auto';
         }, 2000);
     }
 }
@@ -179,8 +187,12 @@ function triggerDefeat() {
             <div class="victory-message defeat-message">
                 <h2>${titleDefeat}</h2>
                 <p>${textDefeat}</p>
-                <button class="btn-game btn-restart" onclick="location.reload()">🔄 Jugar de nuevo</button>
+                <button class="btn-game btn-restart" onclick="restartGame()">🔄 Jugar de nuevo</button>
             </div>
         `;
     }, 400);
+}
+
+function restartGame() {
+    startGame(currentRows, currentCols, currentGameType);
 }

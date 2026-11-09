@@ -1,37 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StoryWeaver - An Ogre and His Cake</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body class="ogre-theme">
     <main class="main-layout">
-        
+
         <!-- HEADER AND TEXT FOR OGRE.HTML -->
         <div class="meta-text">
             <nav aria-label="breadcrumbs" class="breadcrumbs">
                 <strong>📍 Estás en:</strong> <a href="index.html">Inicio</a> > Módulos > Las cerraduras del ogro
             </nav>
-            
+
             <header class="modern-panel header-module">
                 <h1 style="color: var(--color-dark-wood);">Entrada 1: <em>An Ogre and His Cake</em></h1>
-                <p>Este módulo tiene una premisa tan simple como genial: un ogro glotón le ha robado la tarta de cumpleaños a una niña y tu grupo de aventureros tiene que infiltrarse en su torre en ruinas para recuperarla.</p>
-                <p>El problema de los RPGs generados por texto es que acciones como forzar una puerta suelen quedarse en un aburrido «tiras el dado de Destreza y pasas». Para darle vida a <strong>StoryWeaver</strong>, he decidido que los momentos críticos del juego salgan de la narración de la IA y se conviertan en puzles reales. Aquí no te salva la ficha de tu personaje; te vas a tener que pelear tú misma con el mecanismo.</p>
+                <p>Este módulo tiene una premisa tan simple como genial: un ogro glotón le ha robado la tarta de
+                    cumpleaños a una niña y tu grupo de aventureros tiene que infiltrarse en su torre en ruinas para
+                    recuperarla.</p>
+                <p>El problema de los RPGs generados por texto es que acciones como forzar una puerta suelen quedarse en
+                    un aburrido «tiras el dado de Destreza y pasas». Para darle vida a <strong>StoryWeaver</strong>, he
+                    decidido que los momentos críticos del juego salgan de la narración de la IA y se conviertan en
+                    puzles reales. Aquí no te salva la ficha de tu personaje; te vas a tener que pelear tú misma con el
+                    mecanismo.</p>
             </header>
-            
+
             <section class="text-section">
                 <h2>El desafío: La cerradura enana (Lights Out)</h2>
-                <p>La entrada principal de la torre está sellada por un viejo panel de 3x3. Como buena cerradura enana, sus engranajes están trucados: cada vez que tocas una placa para encenderla, también cambian de estado las cuatro casillas que la rodean en forma de cruz (arriba, abajo, izquierda y derecha).</p>
-                <p><strong>Tu objetivo:</strong> Conseguir que los nueve paneles se iluminen de color dorado a la vez para que la puerta ceda. Ojo con dar demasiados pasos en falso, porque las trampas defensivas del ogro siguen activas.</p>
-            </section>   
+                <p>La entrada principal de la torre está sellada por un viejo panel de 3x3. Como buena cerradura enana,
+                    sus engranajes están trucados: cada vez que tocas una placa para encenderla, también cambian de
+                    estado las cuatro casillas que la rodean en forma de cruz (arriba, abajo, izquierda y derecha).</p>
+                <p><strong>Tu objetivo:</strong> Conseguir que los nueve paneles se iluminen de color dorado a la vez
+                    para que la puerta ceda. Ojo con dar demasiados pasos en falso, porque las trampas defensivas del
+                    ogro siguen activas.</p>
+            </section>
         </div>
-        
+
         <!-- SIDE NAVIGATION PANE -->
         <aside class="modern-panel">
             <section>
-                <h3 style="margin-top: 0; font-size: 1.2em; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 10px;">Módulos</h3>
+                <h3
+                    style="margin-top: 0; font-size: 1.2em; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 10px;">
+                    Módulos</h3>
                 <ul style="list-style-type: none; padding: 0; font-size: 0.9em; line-height: 1.8;">
                     <li style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed rgba(0,0,0,0.2);">
                         <a href="index.html" style="font-weight: bold; font-size: 1.1em;">🏠 Volver al Inicio</a>
@@ -47,7 +61,7 @@
                     </li>
                 </ul>
             </section>
-        <div class="module-cover-container">
+            <div class="module-cover-container">
                 <img src="assets/covers/ogre_cover.png" alt="An Ogre and His Cake" class="cover-module">
             </div>
         </aside>
@@ -60,10 +74,12 @@
         </article>
 
         <!-- HUD -->
-        <aside id="game-hud" class="modern-panel"> 
+        <aside id="game-hud" class="modern-panel">
             <div style="text-align: center; margin-bottom: 20px;">
                 <button id="btn-music" class="btn-music" onclick="toggleMusic()">🎵 Música</button>
-            </div>                       
+                <button id="btn-reset" class="btn-music" onclick="restartGame()" style="margin-top: 10px;">🔄 Reiniciar
+                    intento</button>
+            </div>
             <div class="portrait">
                 <img id="character-portrait" src="assets/normal-face.png" alt="Avatar">
             </div>
@@ -72,10 +88,12 @@
             </div>
             <div class="minimap-container">
                 <img src="assets/minimap.jpg" alt="Minimap">
-            </div>                
+            </div>
         </aside>
-        <footer style="grid-column: 1 / -1; margin-top: 20px; text-align: center; font-size: 0.8em; color: var(--color-dark-wood); border-top: 1px solid rgba(0,0,0,0.1); padding-top: 15px;">
-            <p><strong>Créditos:</strong> Módulo "An Ogre and His Cake" creado por Christopher Walz y Emmet Byrne. Música y texturas utilizadas bajo licencia de uso no comercial.</p>
+        <footer
+            style="grid-column: 1 / -1; margin-top: 20px; text-align: center; font-size: 0.8em; color: var(--color-dark-wood); border-top: 1px solid rgba(0,0,0,0.1); padding-top: 15px;">
+            <p><strong>Créditos:</strong> Módulo "An Ogre and His Cake" creado por Christopher Walz y Emmet Byrne.
+                Música y texturas utilizadas bajo licencia de uso no comercial.</p>
         </footer>
     </main>
 
@@ -86,4 +104,5 @@
         startGame(3, 3, 'panels');
     </script>
 </body>
+
 </html>

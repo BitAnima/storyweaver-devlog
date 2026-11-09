@@ -23,7 +23,7 @@ function updateBoard() {
                 <div class="victory-message">
                     <h2>¡Bóveda Superada!</h2>
                     <p>Tu memoria ha evitado que el hielo ceda bajo tus pies.</p>
-                    <button class="btn-game btn-restart" onclick="location.reload()">🔄 Jugar de nuevo</button>
+                    <button class="btn-game btn-restart" onclick="restartGame()">🔄 Jugar de nuevo</button>
                 </div>
             `;
             launchMagicSparks();
