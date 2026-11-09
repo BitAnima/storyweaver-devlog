@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StoryWeaver - Sandbox</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
     <main class="main-layout">
-        
+
         <!-- HEADER AND TEXT -->
         <div class="meta-text">
             <nav aria-label="breadcrumbs" class="breadcrumbs">
@@ -16,28 +18,51 @@
             </nav>
             <header class="modern-panel header-module">
                 <h1 style="color: var(--color-dark-wood);">El motor de StoryWeaver</h1>
-                <p>Bienvenido al diario de desarrollo de <strong>StoryWeaver</strong>. El núcleo de mi proyecto es un RPG interactivo local impulsado por FastAPI y PostgreSQL, donde la IA y ComfyUI/Flux asumen el rol de Dungeon Master para narrar e ilustrar en tiempo real campañas basadas en Open5e.</p>
-                <p>En este blog documentaremos la integración de los minijuegos interactivos que servirán como mecánicas de resolución para las diferentes campañas disponibles en el juego: <em>An Ogre and His Cake</em>, <em>Delian Tomb</em> y <em>Frozen Sick</em>.</p>
-                <p>Para romper la monotonía de la generación de texto de la IA y añadir tensión, he diseñado minijuegos deterministas en Vanilla JS (sin frameworks) que actuarán como mecánicas de resolución táctiles para el jugador.</p>
+                <p>Bienvenido al diario de desarrollo de <strong>StoryWeaver</strong>. El núcleo de mi proyecto es un
+                    RPG interactivo local impulsado por FastAPI y PostgreSQL, donde la IA y ComfyUI/Flux asumen el rol
+                    de Dungeon Master para narrar e ilustrar en tiempo real campañas basadas en Open5e.</p>
+                <p>En este blog documentaremos la integración de los minijuegos interactivos que servirán como mecánicas
+                    de resolución para las diferentes campañas disponibles en el juego: <em>An Ogre and His Cake</em>,
+                    <em>Delian Tomb</em> y <em>Frozen Sick</em>.
+                </p>
+                <p>Para romper la monotonía de la generación de texto de la IA y añadir tensión, he diseñado minijuegos
+                    deterministas en Vanilla JS (sin frameworks) que actuarán como mecánicas de resolución táctiles para
+                    el jugador.</p>
             </header>
-            
+
             <section class="text-section">
                 <h2>Arquitectura del Motor en Vanilla JS</h2>
-                <p>El objetivo de este proyecto es construir un motor RPG modular prescindiendo de frameworks externos. La lógica de la cuadrícula se genera dinámicamente mediante JavaScript nativo, mientras que la presentación visual se apoya íntegramente en variables CSS y CSS Grid.</p>
-                <p>A lo largo de este diario, documentaré la creación de distintos minijuegos interactivos que funcionarán como mecánicas de resolución para módulos como <em>An Ogre and His Cake</em>, <em>Delian Tomb</em> y <em>Frozen Sick</em>.</p>
+                <p>El objetivo de este proyecto es construir un motor RPG modular prescindiendo de frameworks externos.
+                    La lógica de la cuadrícula se genera dinámicamente mediante JavaScript nativo, mientras que la
+                    presentación visual se apoya íntegramente en variables CSS y CSS Grid.</p>
+                <p>A lo largo de este diario, documentaré la creación de distintos minijuegos interactivos que
+                    funcionarán como mecánicas de resolución para módulos como <em>An Ogre and His Cake</em>, <em>Delian
+                        Tomb</em> y <em>Frozen Sick</em>.</p>
             </section>
-                        
+
             <section class="text-section">
                 <h2>Prototipo de cuadrícula base</h2>
-                <p>El tablero que ves a continuación es la <strong>plantilla base</strong> del motor y funciona como un entorno de pruebas (<em>sandbox</em>). Demuestra que el motor genera la cuadrícula y que los eventos del DOM (luces y sonido) responden al instante. Su función no es albergar un juego completo, sino demostrar que el sistema de coordenadas de la cuadrícula se genera correctamente y que los eventos táctiles responden de forma dinámica. Si hace clic en una celda, se activará un sonido y se verás cómo las casillas se iluminan.</p>
-                <p>Esta misma plantilla, estructurada en tres columnas (Menú, Tablero y HUD), es la que utilizaremos en las otras entradas del blog. En ellas inyectaremos algoritmos específicos: puzles de paneles en <em>An Ogre and His Cake</em> y buscaminas en <em>Frozen Sick</em> con sus respectivas condiciones para superar el juego o fracasar en él.</p>
-            </section>   
+                <p>El tablero que ves a continuación es la <strong>plantilla base</strong> del motor y funciona como un
+                    entorno de pruebas (<em>sandbox</em>). Demuestra que el motor genera la cuadrícula y que los eventos
+                    del DOM (luces y sonido) responden al instante. Su función no es albergar un juego completo, sino
+                    demostrar que el sistema de coordenadas de la cuadrícula se genera correctamente y que los eventos
+                    táctiles responden de forma dinámica. Si haces clic en una celda, se activará un sonido y se verá
+                    cómo las casillas se iluminan.</p>
+                <p>Esta misma plantilla, estructurada en tres columnas (Menú, Tablero y HUD), es la que utilizaremos en
+                    las otras entradas del blog. En ellas inyectaremos algoritmos específicos: puzles de paneles en
+                    <em>An Ogre and His Cake</em> y desafíos de memoria visual en <em>Frozen Sick</em> con sus
+                    respectivas condiciones
+                    para superar el juego o fracasar en él.
+                </p>
+            </section>
         </div>
-        
+
         <!-- SIDE NAVIGATION PANE -->
         <aside class="modern-panel">
             <section>
-                <h3 style="margin-top: 0; font-size: 1.2em; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 10px;">Módulos</h3>
+                <h3
+                    style="margin-top: 0; font-size: 1.2em; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 10px;">
+                    Módulos</h3>
                 <ul style="list-style-type: none; padding: 0; font-size: 0.9em; line-height: 1.8;">
                     <li style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed rgba(0,0,0,0.2);">
                         <a href="index.html" class="active-menu" style="font-size: 1.1em;">🏠 Inicio</a>
@@ -63,10 +88,10 @@
         </article>
 
         <!-- HUD -->
-        <aside id="game-hud" class="modern-panel"> 
+        <aside id="game-hud" class="modern-panel">
             <div style="text-align: center; margin-bottom: 20px;">
                 <button id="btn-music" class="btn-music" onclick="toggleMusic()">🎵 Música</button>
-            </div>                       
+            </div>
             <div class="portrait">
                 <img id="character-portrait" src="assets/normal-face.png" alt="Avatar">
             </div>
@@ -75,17 +100,20 @@
             </div>
             <div class="minimap-container">
                 <img src="assets/minimap.jpg" alt="Minimap">
-            </div>                
+            </div>
         </aside>
-        <footer style="grid-column: 1 / -1; margin-top: 20px; text-align: center; font-size: 0.8em; color: var(--color-dark-wood); border-top: 1px solid rgba(0,0,0,0.1); padding-top: 15px;">
+        <footer
+            style="grid-column: 1 / -1; margin-top: 20px; text-align: center; font-size: 0.8em; color: var(--color-dark-wood); border-top: 1px solid rgba(0,0,0,0.1); padding-top: 15px;">
             <p><strong>Créditos:</strong> Música y texturas utilizadas bajo licencia de uso no comercial.</p>
         </footer>
     </main>
 
-    <audio id="background-music" src="assets/audio/kaazoom-embers-on-the-flagstone-seamless-loop-medieval-tavern-rpg-616137.mp3" loop></audio>
+    <audio id="background-music"
+        src="assets/audio/kaazoom-embers-on-the-flagstone-seamless-loop-medieval-tavern-rpg-616137.mp3" loop></audio>
     <script src="js/engine.js"></script>
     <script>
         startGame(3, 3, 'sandbox');
     </script>
 </body>
+
 </html>

@@ -36,7 +36,7 @@ function startGame(rows, cols, gameType) {
         let board = document.getElementById('board-game');
         board.style.pointerEvents = 'none';
 
-        let safeCount = 5;
+        let safeCount = 10;
         let rows = matrixStatus.length;
         let cols = matrixStatus[0].length;
 

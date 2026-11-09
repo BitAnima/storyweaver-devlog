@@ -1,37 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StoryWeaver - Frozen Sick</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body class="frozen-theme">
     <main class="main-layout">
-        
+
         <!-- HEADER AND TEXT FOR OGRE.HTML -->
         <div class="meta-text">
             <nav aria-label="breadcrumbs" class="breadcrumbs">
                 <strong>📍 Estás en:</strong> <a href="index.html">Inicio</a> > Módulos > Trampas de hielo
             </nav>
-            
+
             <header class="modern-panel header-module">
                 <h1 style="color: var(--color-dark-wood);">Entrada 3: <em>Frozen Sick</em></h1>
-                <p>En esta aventura, el grupo de exploradores se adentra en las ruinas criogénicas de Salsvault (Eiselcross). El frío es letal y las defensas mágicas siguen activas siglos después.</p>
-                <p>Este módulo sirve como demostración de cómo el motor <strong>StoryWeaver</strong> puede adaptar sus mecánicas. Pasamos de un puzle matemático a un desafío de tensión y memoria, reflejando el peligro inminente del entorno helado.</p>
+                <p>En esta aventura, el grupo de exploradores se adentra en las ruinas criogénicas de Salsvault
+                    (Eiselcross). El frío es letal y las defensas mágicas siguen activas siglos después.</p>
+                <p>Este módulo sirve como demostración de cómo el motor <strong>StoryWeaver</strong> puede adaptar sus
+                    mecánicas. Pasamos de un puzle matemático a un desafío de tensión y memoria, reflejando el peligro
+                    inminente del entorno helado.</p>
             </header>
-            
+
             <section class="text-section">
                 <h2>El desafío: Hielo Quebradizo (Memoria Visual)</h2>
-                <p>El suelo de la bóveda criogénica es extremadamente inestable. Al entrar, la resonancia mágica revela durante solo 2 segundos cuáles son las 5 únicas baldosas seguras en esta cuadrícula de 4x4.</p>
-                <p><strong>Tu objetivo:</strong> Memorizar su posición exacta antes de que la ventisca las oculte. Haz clic SOLO en las baldosas seguras. Si pisas el hielo fino una sola vez, la congelación acabará contigo al instante.</p>
-            </section>  
+                <p>El suelo de la bóveda criogénica es extremadamente inestable. Al entrar, la resonancia mágica revela
+                    durante solo 2 segundos cuáles son las 10 únicas baldosas seguras en esta cuadrícula de 5x5.</p>
+                <p><strong>Tu objetivo:</strong> Memorizar su posición exacta antes de que la ventisca las oculte. Haz
+                    clic SOLO en las baldosas seguras. Si pisas el hielo fino una sola vez, la congelación acabará
+                    contigo al instante.</p>
+            </section>
         </div>
-        
+
         <!-- SIDE NAVIGATION PANE -->
         <aside class="modern-panel">
             <section>
-                <h3 style="margin-top: 0; font-size: 1.2em; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 10px;">Módulos</h3>
+                <h3
+                    style="margin-top: 0; font-size: 1.2em; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 10px;">
+                    Módulos</h3>
                 <ul style="list-style-type: none; padding: 0; font-size: 0.9em; line-height: 1.8;">
                     <li style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed rgba(0,0,0,0.2);">
                         <a href="index.html" style="font-weight: bold; font-size: 1.1em;">🏠 Volver al Inicio</a>
@@ -47,8 +57,8 @@
                     </li>
                 </ul>
             </section>
-        <div class="module-cover-container">
-                <img src="assets/covers/frozen_cover.jpg" alt="An Ogre and His Cake" class="cover-module">
+            <div class="module-cover-container">
+                <img src="assets/covers/frozen_cover.jpg" alt="Frozen Sick" class="cover-module">
             </div>
         </aside>
 
@@ -60,10 +70,10 @@
         </article>
 
         <!-- HUD -->
-        <aside id="game-hud" class="modern-panel"> 
+        <aside id="game-hud" class="modern-panel">
             <div style="text-align: center; margin-bottom: 20px;">
                 <button id="btn-music" class="btn-music" onclick="toggleMusic()">🎵 Música</button>
-            </div>                       
+            </div>
             <div class="portrait">
                 <img id="character-portrait" src="assets/normal-face.png" alt="Avatar">
             </div>
@@ -72,18 +82,22 @@
             </div>
             <div class="minimap-container">
                 <img src="assets/minimap.jpg" alt="Minimap">
-            </div>                
+            </div>
         </aside>
-        <footer style="grid-column: 1 / -1; margin-top: 20px; text-align: center; font-size: 0.8em; color: var(--color-dark-wood); border-top: 1px solid rgba(0,0,0,0.1); padding-top: 15px;">
-            <p><strong>Créditos:</strong> Aventura basada en el módulo "Frozen Sick" (Wildemount). Música y texturas utilizadas bajo licencia de uso no comercial.</p>
+        <footer
+            style="grid-column: 1 / -1; margin-top: 20px; text-align: center; font-size: 0.8em; color: var(--color-dark-wood); border-top: 1px solid rgba(0,0,0,0.1); padding-top: 15px;">
+            <p><strong>Créditos:</strong> Aventura basada en el módulo "Frozen Sick" (Wildemount). Música y texturas
+                utilizadas bajo licencia de uso no comercial.</p>
         </footer>
     </main>
 
-    <audio id="background-music" src="assets/audio/shorts_by_pazuzustudio-cold-rainy-day-aesthetic-piano-518037.mp3" loop></audio>
+    <audio id="background-music" src="assets/audio/shorts_by_pazuzustudio-cold-rainy-day-aesthetic-piano-518037.mp3"
+        loop></audio>
     <script src="js/engine.js"></script>
     <script src="js/frozen.js"></script>
     <script>
         startGame(5, 5, 'memory');
     </script>
 </body>
+
 </html>

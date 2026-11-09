@@ -400,6 +400,32 @@ body.delian-theme #game-interface {
     padding: 70px;
 }
 
+body.frozen-theme {
+    --color-clear-wood: #3b5975;
+    --color-dark-wood: #1b2e40;
+    --color-accent: #a8e6ff;
+}
+
+body.frozen-theme #board-game::before {
+    content: "❄️" !important;
+    opacity: 0.15 !important;
+}
+
+body.frozen-theme #board-game.victory .victory-message::before {
+    content: "❄️";
+    font-size: 4rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+body.frozen-theme #board-game.defeat .victory-message::before {
+    content: "💀";
+    font-size: 4rem;
+    margin-bottom: 10px;
+    display: block;
+
+}
+
 body.frozen-theme #game-interface {
     background-image: url('../assets/backgrounds/frozen_background.jpg');
     padding: 70px;
