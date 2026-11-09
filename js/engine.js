@@ -22,6 +22,16 @@ function startGame(rows, cols, gameType) {
     document.getElementById('board-game').style.pointerEvents = 'auto';
 
     if (portrait) portrait.src = 'assets/normal-face.png';
+    let hudStatus = document.getElementById('hud-status');
+    if (hudStatus) {
+        if (gameType === 'panels') {
+            hudStatus.innerText = '⚙️ Movimientos: 0 (6 seguros)';
+        } else if (gameType === 'memory') {
+            hudStatus.innerText = '❄️ Baldosas: 0 / 10';
+        } else {
+            hudStatus.innerText = '🛠️ Modo prueba libre';
+        }
+    }
 
     for (let i = 0; i < rows; i++) {
         let row = []
@@ -86,6 +96,11 @@ function handleClick(x, y, gameType) {
     if (gameType === 'panels') {
         moves++;
 
+        let hudStatus = document.getElementById('hud-status');
+        if (hudStatus) {
+            hudStatus.innerText = '⚙️ Movimientos: ' + moves + ' (6 seguros)';
+        }
+
         matrixStatus[x][y] = matrixStatus[x][y] === 0 ? 1 : 0;
         if (x > 0) matrixStatus[x - 1][y] = matrixStatus[x - 1][y] === 0 ? 1 : 0;
         if (x < matrixStatus.length - 1) matrixStatus[x + 1][y] = matrixStatus[x + 1][y] === 0 ? 1 : 0;
@@ -127,6 +142,13 @@ function handleClick(x, y, gameType) {
 
         if (matrixStatus[x][y] === 1) {
             matrixStatus[x][y] = 2;
+
+            let foundCount = matrixStatus.flat().filter(v => v === 2).length;
+            let hudStatus = document.getElementById('hud-status');
+            if (hudStatus) {
+                hudStatus.innerText = '❄️ Baldosas: ' + foundCount + ' / 10';
+            }
+
 
             cell.classList.add('light-up-cell');
             updateBoard();
