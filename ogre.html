@@ -29,20 +29,34 @@
                     cumpleaños a una niña y tu grupo de aventureros tiene que infiltrarse en su torre en ruinas para
                     recuperarla.</p>
                 <p>El problema de los RPGs generados por texto es que acciones como forzar una puerta suelen quedarse en
-                    un aburrido «tiras el dado de Destreza y pasas». Para darle vida a <strong>StoryWeaver</strong>, he
+                    una respuesta como «tiras el dado de Destreza y pasas». Para darle vida a
+                    <strong>StoryWeaver</strong>, he
                     decidido que los momentos críticos del juego salgan de la narración de la IA y se conviertan en
-                    puzles reales. Aquí no te salva la ficha de tu personaje; te vas a tener que pelear tú misma con el
-                    mecanismo.</p>
+                    puzles reales. Aquí no te salva la ficha de tu personaje; te vas a tener que pelear tú mismo con el
+                    mecanismo.
+                </p>
             </header>
 
             <section class="text-section">
-                <h2>El desafío: La cerradura enana (Lights Out)</h2>
+                <h2>El desafío: La cerradura enana (<em>Lights Out</em>)</h2>
                 <p>La entrada principal de la torre está sellada por un viejo panel de 3x3. Como buena cerradura enana,
-                    sus engranajes están trucados: cada vez que tocas una placa para encenderla, también cambian de
-                    estado las cuatro casillas que la rodean en forma de cruz (arriba, abajo, izquierda y derecha).</p>
-                <p><strong>Tu objetivo:</strong> Conseguir que los nueve paneles se iluminen de color dorado a la vez
-                    para que la puerta ceda. Ojo con dar demasiados pasos en falso, porque las trampas defensivas del
-                    ogro siguen activas.</p>
+                    sus engranajes están conectados entre sí: cada vez que pulsas una placa para encenderla o apagarla,
+                    también cambian de estado las casillas que la rodean en forma de cruz (arriba, abajo, izquierda y
+                    derecha).</p>
+                <p><strong>Tu objetivo:</strong> Conseguir que los nueve paneles brillen de color dorado a la vez para
+                    que la puerta ceda. Tienes 6 movimientos seguros (puedes ver el contador en el panel derecho). Si
+                    das más toques de la cuenta, saltarás las defensas del ogro y cada intento extra te restará un 20%
+                    de vida.</p>
+            </section>
+            <section>
+                <h2>¿Cómo está hecho por dentro?</h2>
+                <p>Para este primer minijuego, pensado para los niveles sencillos para los niños más pequeños, el motor
+                    guarda
+                    el estado del tablero en una matriz bidimensional de ceros y unos (matrixStatus). Cuando haces clic
+                    en una casilla, JavaScript lee sus coordenadas <em>data-x</em> y <em>data-y</em>, comprueba que no
+                    nos salgamos de los
+                    bordes de la cuadrícula e invierte el valor de la celda central y sus cuatro vecinas antes de
+                    revisar si ya están las 9 celdas totales encendidas.</p>
             </section>
         </div>
 

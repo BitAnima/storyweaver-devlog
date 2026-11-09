@@ -29,19 +29,32 @@
                     para novatos: persigues a unos goblins hasta el interior de una tumba que, en realidad, esconde el
                     mausoleo secreto de una antigua orden de caballeros olvidada.</p>
                 <p>Al fondo de esta cripta hay una cámara oculta que guarda el verdadero tesoro. En una partida de mesa
-                    tradicional, el Dungeon Master te pediría una simple prueba de Inteligencia para descifrar el muro.
-                    En este motor, he transformado esa tirada pasiva en un puzle místico interactivo. Demuestra lo que
-                    vale tu personaje rompiendo el sello mágico.</p>
+                    tradicional, el <em>Dungeon Master</em> te pediría una simple prueba de Inteligencia para descifrar
+                    el muro.
+                    En este motor, he transformado esa tirada pasiva en un puzle místico interactivo. ¡Demuestra lo que
+                    vale tu personaje rompiendo el sello mágico!.</p>
             </header>
 
             <section class="text-section">
                 <h2>El desafío: El sello del juramento (4x4)</h2>
-                <p>La pared de piedra secreta está custodiada por una matriz de cristal rúnico de 4x4. Funciona con la
-                    misma lógica interconectada que la cerradura del ogro, pero al tener más nodos, la resonancia mágica
-                    es mucho más inestable y difícil de predecir.</p>
-                <p><strong>Tu objetivo:</strong> Alinear el flujo de maná para que los 16 cristales brillen con luz
-                    élfica simultáneamente. Solo entonces la ilusión se desvanecerá, revelando los oscuros secretos de
-                    la orden de Delian.</p>
+                <p>La pared secreta está protegida por una matriz de cristal rúnico de 4x4. Aunque el mecanismo en cruz
+                    es el mismo que el de la cerradura del ogro, pasar de 9 a 16 nodos hace que sea bastante más fácil
+                    perder el control del tablero si tocas donde no debes.</p>
+                <p><strong>Tu objetivo:</strong> Alinear el flujo de maná para que los 16 cristales se iluminen con luz
+                    élfica a la vez. Aquí también cuentas con solo 6 movimientos estables: a partir del séptimo toque,
+                    el sello se sobrecarga y te drenará un 20% de vida con cada clic adicional.</p>
+            </section>
+            <section>
+                <h2>¿Cómo está hecho por dentro?</h2>
+                <p>Para pasar del tablero de 3x3 del minijuego de la cerradura del ogro al de 4x4 y cambiar toda la
+                    ambientación, no he tenido que tocar ni una sola línea del motor principal (engine.js). Tan sólo he
+                    tenido que cambiar los parámetros de la función que inicializa el juego (startGame) para que CSS
+                    Grid ajuste las
+                    columnas automáticamente, y aplicar la clase .delian-theme a la etiqueta
+
+                    <body> para cambiar la paleta de madera por tonos verdes y cian modificando tres variables en el CSS
+                        (--color-clear-wood, --color-dark-wood y --color-accent).
+                </p>
             </section>
         </div>
 

@@ -25,20 +25,33 @@
                     <span class="tag">#MemoriaVisual</span>
                     <span class="tag">#Matriz5x5</span>
                 </div>
-                <p>En esta aventura, el grupo de exploradores se adentra en las ruinas criogénicas de Salsvault
-                    (Eiselcross). El frío es letal y las defensas mágicas siguen activas siglos después.</p>
-                <p>Este módulo sirve como demostración de cómo el motor <strong>StoryWeaver</strong> puede adaptar sus
-                    mecánicas. Pasamos de un puzle matemático a un desafío de tensión y memoria, reflejando el peligro
-                    inminente del entorno helado.</p>
+                <p>En esta aventura el grupo se adentra en Salsvault, unas ruinas excavadas en el hielo donde el frío y
+                    las trampas antiguas no perdonan un solo despiste.</p>
+                <p>Para el nivel difícil quería salir de los puzles de lógica determinista y probar algo que metiera
+                    presión
+                    real al jugador. El minijuego propuesto se trata de una prueba de memoria visual rápida, ideal para
+                    momentos de peligro
+                    ambiental en la campaña.</p>
             </header>
 
             <section class="text-section">
-                <h2>El desafío: Hielo Quebradizo (Memoria Visual)</h2>
-                <p>El suelo de la bóveda criogénica es extremadamente inestable. Al entrar, la resonancia mágica revela
-                    durante solo 2 segundos cuáles son las 10 únicas baldosas seguras en esta cuadrícula de 5x5.</p>
-                <p><strong>Tu objetivo:</strong> Memorizar su posición exacta antes de que la ventisca las oculte. Haz
-                    clic SOLO en las baldosas seguras. Si pisas el hielo fino una sola vez, la congelación acabará
-                    contigo al instante.</p>
+                <h2>El desafío: Hielo quebradizo (memoria visual)</h2>
+                <p>El suelo de la bóveda está agrietado. Nada más entrar (o al pulsar 'Reiniciar intento'), un destello
+                    mágico ilumina durante solo 2 segundos las 10 únicas baldosas seguras dentro de la cuadrícula de
+                    5x5.</p>
+                <p><strong>Tu objetivo:</strong> Memorizar dónde estaban las 10 baldosas antes de que se apaguen y hacer
+                    clic únicamente en ellas. Aquí no hay margen de error: si pisas una sola placa de hielo fino,
+                    perderás toda la vida de golpe.</p>
+            </section>
+            <section>
+                <h2>¿Cómo está hecho por dentro?</h2>
+                <p>En este modo de juego cada celda de la matriz pasa por tres estados: 0 (hielo fino), 1 (baldosa
+                    segura
+                    oculta) y 2 (baldosa ya pisada). Durante los 2 segundos en los que se muestran las 10 casillas
+                    aleatorias, se bloquean los clics del ratón para evitar que se pulse antes
+                    de tiempo. Además, cuando fallas, en lugar de cargar otra imagen distinta para el personaje, como
+                    ocurre en los otros minijuegos, la cara del personaje simula estar congelada gracias a una
+                    combinación de filtros CSS.</p>
             </section>
         </div>
 
