@@ -31,6 +31,36 @@ function startGame(rows, cols, gameType) {
         matrixStatus.push(row);
     }
     document.getElementById('board-game').style.gridTemplateColumns = 'repeat(' + cols + ', 1fr)';
+
+    if (gameType === 'memory') {
+        let board = document.getElementById('board-game');
+        board.style.pointerEvents = 'none'; 
+
+        let safeCount = 5;
+        let rows = matrixStatus.length;
+        let cols = matrixStatus[0].length;
+
+        while (safeCount > 0) {
+            let r = Math.floor(Math.random() * rows);
+            let c = Math.floor(Math.random() * cols);
+            
+            if (matrixStatus[r][c] === 0) {
+                matrixStatus[r][c] = 1;
+
+                let cell = document.querySelector(`[data-x='${r}'][data-y='${c}']`);
+                cell.classList.add('light-up-cell');
+                safeCount--;
+            }
+        }
+
+        // El temporizador implacable: a los 2 segundos, se apaga la luz
+        setTimeout(() => {
+            document.querySelectorAll('.btn-game').forEach(btn => {
+                btn.classList.remove('light-up-cell');
+            });
+            board.style.pointerEvents = 'auto'; // Vuelve a permitir clics
+        }, 2000);
+    }
 }
 
 function handleClick(x, y, gameType) {
@@ -91,6 +121,44 @@ function handleClick(x, y, gameType) {
         if (y < matrixStatus[0].length - 1) matrixStatus[x][y+1] = matrixStatus[x][y+1] === 0 ? 1 : 0;
 
         updateBoard();
+    }
+
+
+    else if (gameType === 'memory') {
+        let cell = document.querySelector(`[data-x='${x}'][data-y='${y}']`);
+        
+        // Si la casilla ya estaba acertada (Estado 2), ignoramos el clic
+        if (matrixStatus[x][y] === 2) return;
+        
+        if (matrixStatus[x][y] === 1) {             
+            matrixStatus[x][y] = 2;
+
+            cell.classList.add('light-up-cell');
+            updateBoard(); 
+            
+        } else if (matrixStatus[x][y] === 0) { 
+            life -= window.damageAmount || 100; // Quitamos toda la vida
+            if (life < 0) life = 0;
+            document.getElementById('bar-life').style.width = life + '%';
+            
+            cell.style.backgroundColor = '#4a90e2';
+            
+            let interfaz = document.getElementById('game-interface');
+            interfaz.classList.add('shake-damage');
+            setTimeout(() => interfaz.classList.remove('shake-damage'), 400);
+
+            let portrait = document.getElementById('character-portrait');
+            if (document.body.classList.contains('frozen-theme')) {
+                portrait.classList.add('avatar-frozen');
+            } else {
+                portrait.classList.remove('avatar-frozen');
+                portrait.src = 'assets/burnt-face.png';
+            }
+
+            if (life === 0) {
+                triggerDefeat();
+            }
+        }
     }
 }
 

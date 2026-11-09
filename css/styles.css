@@ -349,3 +349,8 @@ body.frozen-theme #game-interface {
     background-image: url('../assets/backgrounds/frozen_background.jpg');
     padding: 70px;
 }
+
+.frozen-theme .avatar-frozen {
+    filter: grayscale(100%) sepia(100%) hue-rotate(180deg) saturate(300%) brightness(0.8);
+    transition: filter 0.5s ease;
+}
