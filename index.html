@@ -17,42 +17,67 @@
                 <strong>📍 Estás en:</strong> <a href="index.html">Inicio</a> > Plantilla para minijuegos
             </nav>
             <header class="modern-panel header-module">
-                <h1 style="color: var(--color-dark-wood);">El motor de StoryWeaver</h1>
-                <p>Bienvenido al diario de desarrollo de <strong>StoryWeaver</strong>. El núcleo de mi proyecto es un
-                    RPG interactivo local impulsado por FastAPI y PostgreSQL, donde la IA y ComfyUI/Flux asumen el rol
-                    de Dungeon Master para narrar e ilustrar en tiempo real campañas basadas en Open5e.</p>
-                <p>En este blog documentaremos la integración de los minijuegos interactivos que servirán como mecánicas
-                    de resolución para las diferentes campañas disponibles en el juego: <em>An Ogre and His Cake</em>,
-                    <em>Delian Tomb</em> y <em>Frozen Sick</em>.
+                <h1 style="color: var(--color-dark-wood);">Diario de desarrollo: construyendo <em>StoryWeaver</em></h1>
+
+                <div class="post-meta">
+                    <time datetime="2026-11-01">📅 Noviembre de 2026</time>
+                    <span class="tag">#FastAPI</span>
+                    <span class="tag">#Ollama</span>
+                    <span class="tag">#ComfyUI</span>
+                    <span class="tag">#VanillaJS</span>
+                </div>
+
+                <p>¡Hola! Bienvenido al <em>devlog</em> de <strong>StoryWeaver</strong>. Este proyecto nació en casa con
+                    una idea muy concreta: quería crear un juego de rol para jugar con mis hijos que creciera con ellos.
                 </p>
-                <p>Para romper la monotonía de la generación de texto de la IA y añadir tensión, he diseñado minijuegos
-                    deterministas en Vanilla JS (sin frameworks) que actuarán como mecánicas de resolución táctiles para
-                    el jugador.</p>
+                <p>En lugar de una historia cerrada, <strong>StoryWeaver</strong> funciona como un <em>Dungeon
+                        Master</em> con inteligencia artificial que narra las partidas por voz e ilustra cada escena al
+                    momento con <strong>ComfyUI</strong>. Lo he diseñado para que pueda funcionar tanto en local (en mi
+                    propio servidor con modelos en Ollama y PostgreSQL) como apoyándose en la nube (Firebase) para
+                    guardar las partidas y las cartas coleccionables que los niños van descubriendo al tocar palabras
+                    clave en el texto.</p>
             </header>
 
             <section class="text-section">
-                <h2>Arquitectura del Motor en Vanilla JS</h2>
-                <p>El objetivo de este proyecto es construir un motor RPG modular prescindiendo de frameworks externos.
-                    La lógica de la cuadrícula se genera dinámicamente mediante JavaScript nativo, mientras que la
-                    presentación visual se apoya íntegramente en variables CSS y CSS Grid.</p>
-                <p>A lo largo de este diario, documentaré la creación de distintos minijuegos interactivos que
-                    funcionarán como mecánicas de resolución para módulos como <em>An Ogre and His Cake</em>, <em>Delian
-                        Tomb</em> y <em>Frozen Sick</em>.</p>
+                <h2>Un juego que se adapta a quien está jugando</h2>
+                <p>Como tengo hijos de distintas edades, el motor cambia por completo las reglas, el tono de
+                    la historia, el estilo de los dibujos y hasta el número de caras de los dados según la dificultad
+                    elegida:</p>
+                <ul>
+                    <li><strong>🐣 Modo <em>Toddler</em> (desde 2 años):</strong> Cuentos cortos sin violencia,
+                        estética
+                        <em>chibi</em> en tonos pastel y tiradas sencillas con un dado de 10 caras
+                        (<strong>D10</strong>).
+                    </li>
+                    <li><strong>🧭 Modo Aventurero (desde 8 años):</strong> Exploración, acertijos,
+                        ilustraciones
+                        estilo <em>Studio Ghibli</em> y un dado de 16 caras (<strong>D16</strong>).</li>
+                    <li><strong>⚔️ Modo Experto (a partir de 12 años):</strong> Campañas largas con reglas clásicas de
+                        <em>Dungeons and Dragons</em>, combates tácticos, dilemas reales y el clásico dado de 20 caras
+                        (<strong>D20</strong>). Todo calculado directamente en el servidor con Python y FastAPI para que
+                        la IA
+                        no dé un siempre un resultado favorable, sino que respete el resultado de la tirada y se rija
+                        por las
+                        leyes de la probabilidad.
+                    </li>
+                </ul>
             </section>
 
             <section class="text-section">
-                <h2>Prototipo de cuadrícula base</h2>
-                <p>El tablero que ves a continuación es la <strong>plantilla base</strong> del motor y funciona como un
-                    entorno de pruebas (<em>sandbox</em>). Demuestra que el motor genera la cuadrícula y que los eventos
-                    del DOM (luces y sonido) responden al instante. Su función no es albergar un juego completo, sino
-                    demostrar que el sistema de coordenadas de la cuadrícula se genera correctamente y que los eventos
-                    táctiles responden de forma dinámica. Si haces clic en una celda, se activará un sonido y se verá
-                    cómo las casillas se iluminan.</p>
-                <p>Esta misma plantilla, estructurada en tres columnas (Menú, Tablero y HUD), es la que utilizaremos en
-                    las otras entradas del blog. En ellas inyectaremos algoritmos específicos: puzles de paneles en
-                    <em>An Ogre and His Cake</em> y desafíos de memoria visual en <em>Frozen Sick</em> con sus
-                    respectivas condiciones
-                    para superar el juego o fracasar en él.
+                <h2>¿Por qué he creado estos minijuegos en Vanilla JS?</h2>
+                <p>Aunque tenía gran parte del backend montado, sentía que resolver una trampa o abrir una cerradura
+                    sólo leyendo o escuchando el texto que había generado la inteligencia artificial o tirando un dado
+                    perdía emoción en una pantalla. Quería que en los momentos
+                    clave el jugador tuviera que resolver una prueba o manipular un mecanismo con sus propias manos.</p>
+                <p>En este blog documento los prototipos de minijuegos que he programado desde cero usando únicamente
+                    <strong>HTML5, CSS Grid, variables CSS y JavaScript nativo (sin frameworks)</strong>. Abajo puedes
+                    probar el <strong>tablero base (<em>sandbox</em>)</strong>. Se trata sólo de una pantilla de prueba
+                    donde puedes ver la estructura base utilizada para el desarrollo y la adaptación de tres minijuegos
+                    basados en paneles de cuadrículas. No se trata de un juego completo. Puedes probar cómo se encienden
+                    y se apagan las luces en la cuadrícula, el sonido y el botón para reiniciar la partida
+                    antes de que se hayan inyectado las reglas específicas de cada minijuego. Si haces clic en una
+                    celda, se activará un sonido y
+                    verás cómo las casillas se iluminan.
                 </p>
             </section>
         </div>
@@ -104,6 +129,12 @@
                 <img src="assets/minimap.jpg" alt="Minimap">
             </div>
         </aside>
+
+        <nav class="modern-panel post-navigation" aria-label="Navegación entre entradas">
+            <span>🏠 Inicio del Devlog</span>
+            <a href="ogre.html">➡️ Entrada 1: Las cerraduras del ogro</a>
+        </nav>
+
         <footer
             style="grid-column: 1 / -1; margin-top: 20px; text-align: center; font-size: 0.8em; color: var(--color-dark-wood); border-top: 1px solid rgba(0,0,0,0.1); padding-top: 15px;">
             <p><strong>Créditos:</strong> Música y texturas utilizadas bajo licencia de uso no comercial.</p>

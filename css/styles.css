@@ -456,11 +456,18 @@ body.frozen-theme #game-interface {
 
 /* --- SEQUENTIAL POST NAVIGATION --- */
 .post-navigation {
-    grid-column: 1;
+    grid-column: 1 /-1;
     display: flex;
     justify-content: space-between;
     padding: 15px 25px;
     margin-top: 10px;
+}
+
+.post-navigation a {
+    color: var(--color-dark-wood);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
 }
 
 .post-navigation a:hover {
